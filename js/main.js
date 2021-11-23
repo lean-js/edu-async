@@ -14,22 +14,30 @@ maxValueFld.addEventListener('input', () => {
 });
 
 testsContainer.addEventListener('click', (ev) => {
-  if( ev.target.matches('button')) {
+
+  if (ev.target.matches('#blocking')) {
     const startBtn = ev.target;
     startBtn.disabled = true;
+
     setTimeout(() => {
-      const elapsedMilliseconds = timeThis(() => {
-        countPrimeNumbers(1, maxValue);
-      });
+      const start = performance.now();
+      countPrimeNumbers(1, maxValue);
+      const end = performance.now();
+      const elapsedMilliseconds = end - start;
       startBtn.previousElementSibling.querySelector('span').textContent = elapsedMilliseconds.toFixed(0);
       startBtn.disabled = false;
     }, 50);
+
   }
 });
 
-function timeThis(action) {
+function startTimer(action) {
   const start = performance.now();
   action();
-  const end = performance.now();
-  return end - start;
+
+  return () => {
+    const end = performance.now();
+    return end - start;
+  };
+
 }
