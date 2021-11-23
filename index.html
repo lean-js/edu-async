@@ -5,6 +5,7 @@
     <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EDU Async</title>
+    <link rel="stylesheet" href="/src/css/compiled.css">
   </head>
   <body>
     <header class="bg-gray-100 shadow">
@@ -16,6 +17,9 @@
         <p class="mt-4 text-center">
           <span class="mr-2">Zähle Primzahlen bis</span>
           <input id="maxValue" type="number" min="1">
+        </p>
+        <p class="mt-8 text-center">
+          Gefundene Primzahlen: <span id="result">?</span>
         </p>
         <div class="meter">
           <span style="width: 100%"></span>
@@ -137,6 +141,6 @@
         </div>
       </div>
     </main>
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
